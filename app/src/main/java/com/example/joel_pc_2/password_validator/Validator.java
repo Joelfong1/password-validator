@@ -9,9 +9,23 @@ public class Validator {
     public static int validate(String password) {
         int rulesPassed = 0;
 
+        //First 2 rules
         if (!password.equalsIgnoreCase("password"))
-                rulesPassed++;
+            rulesPassed++;
         if (password.length() >= 8)
+            rulesPassed++;
+
+        //Added Rules
+        //Special character check
+        if (!password.matches("[a-zA-Z0-9]*"))
+            rulesPassed++;
+
+        //Includes digits
+        if (password.matches("(^.*[0-9].*)"))
+            rulesPassed++;
+
+        //Includes multiple Cases
+        if (password.matches("(^.*[a-z].*)") && password.matches("(^.*[A-Z].*)"))
             rulesPassed++;
 
         return rulesPassed;

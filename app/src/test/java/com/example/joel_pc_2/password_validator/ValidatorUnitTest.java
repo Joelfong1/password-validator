@@ -15,17 +15,27 @@ public class ValidatorUnitTest {
     }
 
     @Test
-    public void isPasswordCaps() {
-        assertEquals(1, Validator.validate("PASSWORD"));
+    public void passwordLength() {
+        assertEquals(2, Validator.validate("lengthypassword"));
     }
 
     @Test
-    public void passwordLength() {
-        assertEquals(1, Validator.validate("1234567"));
+    public void hasSpecialChar() {
+        assertEquals(2, Validator.validate("a!!!"));
+    }
+
+    @Test
+    public void hasDigits() {
+        assertEquals(2, Validator.validate("digit1"));
+    }
+
+    @Test
+    public void hasCases() {
+        assertEquals(2, Validator.validate("Cases"));
     }
 
     @Test
     public void passwordValidate() {
-        assertEquals(2, Validator.validate("password1234"));
+        assertEquals(5, Validator.validate("passWord-1234!"));
     }
 }
