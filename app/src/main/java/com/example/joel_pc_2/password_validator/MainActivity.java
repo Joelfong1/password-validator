@@ -9,15 +9,19 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    final EditText inputPass = findViewById(R.id.inputPass);
-    final TextView validatePass = findViewById(R.id.validatePass);
-    final Validator validator = new Validator();
+    private EditText inputPass;
+    private TextView validatePass;
+    private Validator validator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        inputPass = findViewById(R.id.inputPass);
+        validatePass = findViewById(R.id.validatePass);
+        validator = new Validator();
 
         final Button validateButton = findViewById(R.id.validateButton);
         validateButton.setOnClickListener(new View.OnClickListener() {
